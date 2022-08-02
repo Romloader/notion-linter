@@ -1,0 +1,25 @@
+{
+  "name": "notion-linter",
+  "displayName": "Notion Linter",
+  "description": "",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.69.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "contributes": {
+    "languages": [{
+      "id": "notion-formula",
+      "aliases": ["Notion Formula", "notion-formula"],
+      "extensions": [".normula"],
+      "configuration": "./language-configuration.json"
+    }],
+    "grammars": [{
+      "language": "notion-formula",
+      "scopeName": "test",
+      "path": "./syntaxes/notion-formula.tmLanguage.json"
+    }]
+  }
+}
