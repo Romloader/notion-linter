@@ -11,10 +11,20 @@
 	],
 	"repository": {
 		"keywords": {
-			"patterns": [{
-				"name": "keyword.control.notion-formula",
-				"match": "\\b(if|while|for|return)\\b"
-			}]
+			"patterns": [
+				{
+					"name": "keyword.control.notion-formula",
+					"match": "\\b(if)\\b"
+				}
+			]
+		},
+		"functions": {
+			"patterns": [
+				{
+					"name": "entity.name.function.notion-formula",
+					"match": "\\b(tests)\\b"
+				}
+			]
 		},
 		"strings": {
 			"name": "string.quoted.double.notion-formula",
@@ -28,5 +38,5 @@
 			]
 		}
 	},
-	"scopeName": "test"
+	"scopeName": "text.notion-formula"
 }

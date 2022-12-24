@@ -18,7 +18,7 @@
     }],
     "grammars": [{
       "language": "notion-formula",
-      "scopeName": "test",
+      "scopeName": "text.notion-formula",
       "path": "./syntaxes/notion-formula.tmLanguage.json"
     }]
   }
