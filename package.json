@@ -1,8 +1,14 @@
 {
   "name": "notion-linter",
   "displayName": "Notion Linter",
-  "description": "",
+  "description": "A Linter for Notion Formulas as a VSCode Extension",
+  "author": "Romloader",
+  "publisher": "romloader",
   "version": "0.0.1",
+  "repository": {
+    "type": "git",
+    "url": "https://gitlab.com/Romloader/notion-linter/"
+  },
   "engines": {
     "vscode": "^1.69.0"
   },
@@ -10,16 +16,51 @@
     "Programming Languages"
   ],
   "contributes": {
-    "languages": [{
-      "id": "notion-formula",
-      "aliases": ["Notion Formula", "notion-formula"],
-      "extensions": [".normula"],
-      "configuration": "./language-configuration.json"
-    }],
-    "grammars": [{
-      "language": "notion-formula",
-      "scopeName": "text.notion-formula",
-      "path": "./syntaxes/notion-formula.tmLanguage.json"
-    }]
+    "languages": [
+      {
+        "id": "notion-formula",
+        "aliases": [
+          "Notion Formula",
+          "notion-formula"
+        ],
+        "extensions": [
+          ".normula"
+        ],
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "notion-formula",
+        "scopeName": "text.notion-formula",
+        "path": "./syntaxes/notion-formula.tmLanguage.json"
+      }
+    ],
+    "configuration": {
+      "type": "object",
+      "title": "General configuration",
+      "properties": {
+        "languageServerExample.maxNumberOfProblems": {
+          "scope": "resource",
+          "type": "number",
+          "default": 100,
+          "description": "Maximum amount of problems reported by the server."
+        },
+        "languageServerExample.trace.server": {
+          "scope": "window",
+          "type": "string",
+          "enum": [
+            "off",
+            "messages",
+            "verbose"
+          ],
+          "default": "off",
+          "description": "Trace the communication between VSCode and the language server."
+        }
+      }
+    }
+  },
+  "devDependencies": {
+    "typescript": "^4.9.4"
   }
 }
