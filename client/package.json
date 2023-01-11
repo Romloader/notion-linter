@@ -1,6 +1,6 @@
 {
-	"name": "notion-linter",
-	"displayName": "Notion Linter",
+	"name": "notion-linter-client",
+	"displayName": "Notion Linter Client",
 	"description": "A Linter for Notion Formulas as a VSCode Extension",
 	"author": "Romloader",
 	"publisher": "romloader",

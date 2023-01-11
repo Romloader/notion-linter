@@ -9,7 +9,10 @@
 			"args": ["--extensionDevelopmentPath=${workspaceRoot}"],
 			"outFiles": ["${workspaceRoot}/client/out/**/*.js"],
 			"autoAttachChildProcesses": true,
-			
+			"preLaunchTask": {
+				"type": "npm",
+				"script": "compile"
+			}
 		},
 		{
 			"name": "Language Server E2E Test",

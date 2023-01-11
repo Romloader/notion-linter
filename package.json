@@ -41,13 +41,13 @@
       "type": "object",
       "title": "General configuration",
       "properties": {
-        "languageServerExample.maxNumberOfProblems": {
+        "notion-linter.maxNumberOfProblems": {
           "scope": "resource",
           "type": "number",
           "default": 100,
           "description": "Maximum amount of problems reported by the server."
         },
-        "languageServerExample.trace.server": {
+        "notion-linter.trace.server": {
           "scope": "window",
           "type": "string",
           "enum": [
