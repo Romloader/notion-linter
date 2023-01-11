@@ -15,6 +15,7 @@
   "categories": [
     "Programming Languages"
   ],
+  "main": "./client/out/extension",
   "contributes": {
     "languages": [
       {
@@ -60,6 +61,14 @@
       }
     }
   },
+  "scripts": {
+		"vscode:prepublish": "npm run compile",
+		"compile": "tsc -b",
+		"watch": "tsc -b -w",
+		"lint": "eslint ./client/src ./server/src --ext .ts,.tsx",
+		"postinstall": "cd client && npm install && cd ../server && npm install && cd ..",
+		"test": "sh ./scripts/e2e.sh"
+	},
   "devDependencies": {
     "@types/node": "^18.11.18",
     "@typescript-eslint/eslint-plugin": "^5.48.1",
