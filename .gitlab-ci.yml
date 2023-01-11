@@ -28,6 +28,7 @@ eslint:
         - echo "Linting code..."
         # Install ESLint in this docker container
         - npm install -g eslint
+        - pwd
         # Configure ESLint (from .eslintrc
         - eslint --init
         # Run ESLint
