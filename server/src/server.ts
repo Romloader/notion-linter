@@ -96,7 +96,7 @@ connection.onDidChangeConfiguration(change => {
         documentSettings.clear();
     } else {
         globalSettings = <ExampleSettings>(
-            (change.settings.languageServerExample || defaultSettings)
+            (change.settings.notionLinter || defaultSettings)
         );
     }
 
@@ -112,7 +112,7 @@ function getDocumentSettings(resource: string): Thenable<ExampleSettings> {
     if (!result) {
         result = connection.workspace.getConfiguration({
             scopeUri: resource,
-            section: 'languageServerExample'
+            section: 'notion-linter'
         });
         documentSettings.set(resource, result);
     }
