@@ -1,18 +1,27 @@
-image: node:latest
+image: node
 
-before_script:
-    - echo "Installing dependencies..."
-    - npm install
-    - cd client && npm install && cd ..
-    - cd server && npm install && cd ..
-    - echo "Dependencies installed."
+cache:
+  paths:
+    - node_modules
+    - client/node_modules
+    - server/node_modules
 
 # Executed in order - subjobs are executed in parallel
 stages:
+    - init
 #    - build
     - lint
 #    - test
 #    - deploy
+
+dependencies:
+    stage: init
+    script:
+        - echo "Installing dependencies..."
+        - npm install
+        - cd client && npm install && cd ..
+        - cd server && npm install && cd ..
+        - echo "Dependencies installed."
 
 # ------------------------------- BUILD -------------------------------
 
@@ -28,11 +37,10 @@ eslint:
         - echo "Linting code..."
         # Install ESLint in this docker container
         - npm install -g eslint
-        - pwd
-        # Configure ESLint (from .eslintrc
-        - eslint --init
         # Run ESLint
         - eslint .
+        # Output ESLint stuff
+        - echo "Code linted."
 
 # ------------------------------- TEST -------------------------------
 
