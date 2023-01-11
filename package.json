@@ -10,7 +10,7 @@
     "url": "https://gitlab.com/Romloader/notion-linter/"
   },
   "engines": {
-    "vscode": "^1.69.0"
+    "vscode": "^1.74.0"
   },
   "categories": [
     "Programming Languages"
@@ -61,6 +61,7 @@
     }
   },
   "devDependencies": {
+    "@types/node": "^18.11.18",
     "@typescript-eslint/eslint-plugin": "^5.48.1",
     "@typescript-eslint/parser": "^5.48.1",
     "eslint": "^8.31.0",
