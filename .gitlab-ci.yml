@@ -1,0 +1,55 @@
+image: node:latest
+
+before_script:
+    - echo "Installing dependencies..."
+    - npm install
+    - cd client && npm install && cd ..
+    - cd server && npm install && cd ..
+    - echo "Dependencies installed."
+
+# Executed in order - subjobs are executed in parallel
+stages:
+#    - build
+    - lint
+#    - test
+#    - deploy
+
+# ------------------------------- BUILD -------------------------------
+
+#build:
+#    stage: build
+#    script:
+
+# ------------------------------- LINT -------------------------------
+
+eslint:
+    stage: lint
+    script:
+        - echo "Linting code..."
+        # Install ESLint in this docker container
+        - npm install -g eslint
+        # Configure ESLint (from .eslintrc
+        - eslint --init
+        # Run ESLint
+        - eslint .
+
+# ------------------------------- TEST -------------------------------
+
+#test:
+#    stage: test
+#    script:
+#        - echo "Running tests..."
+#        - |
+#            apt update
+#            apt install -y libasound2 libgbm1 libgtk-3-0 libnss3 xvfb
+#            xvfb-run -a npm run test
+#        - echo "Code coverage is 90%"
+
+# ------------------------------- DEPLOY -------------------------------
+
+#deploy:      # This job runs in the deploy stage.
+#  stage: deploy  # It only runs when *both* jobs in the test stage complete successfully.
+#  environment: production
+#  script:
+#    - echo "Deploying application..."
+#    - echo "Application successfully deployed."
